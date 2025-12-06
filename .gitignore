@@ -1,13 +1,3 @@
-# artifacts
-/build/
-/dist/
-!/dist/spotifyplus_card.js
-.DS_Store
-
-# Visual Studio 2022 configuration.
-/.vs/
-/obj/
-/bin/
 
 # NPM
 /node_modules/
