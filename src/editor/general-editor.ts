@@ -35,29 +35,7 @@ const CONFIG_SETTINGS_SCHEMA = [
       userpresets: 'User Presets',                /* Section.USERPRESETS */
     },
   },
-  {
-    name: 'footerSections',
-    label: 'Footer sections to display',
-    help: 'unchecked items will not be shown in the footer',
-    required: false,
-    type: 'multi_select',
-    options: {
-      /* the following must match defined names in `secion.ts` */
-      player: 'Player',                           /* Section.PLAYER */
-      albumfavorites: 'Album Favorites',          /* Section.ALBUM_FAVORITES */
-      artistfavorites: 'Artist Favorites',        /* Section.ARTIST_FAVORITES */
-      audiobookfavorites: 'Audiobook Favorites',  /* Section.AUDIOBOOK_FAVORITES */
-      categorys: 'Categorys',                     /* Section.CATEGORYS */
-      devices: 'Devices',                         /* Section.DEVICES */
-      episodefavorites: 'Episode Favorites',      /* Section.EPISODE_FAVORITES */
-      playlistfavorites: 'Playlist Favorites',    /* Section.PLAYLIST_FAVORITES */
-      recents: 'Recently Played',                 /* Section.RECENTS */
-      searchmedia: 'Search Media',                /* Section.SEARCH_MEDIA */
-      showfavorites: 'Show Favorites',            /* Section.SHOW_FAVORITES */
-      trackfavorites: 'Track Favorites',          /* Section.TRACK_FAVORITES */
-      userpresets: 'User Presets',                /* Section.USERPRESETS */
-    },
-  },
+
   {
     name: 'entity',
     label: 'SpotifyPlus media player entity to retrieve data from',

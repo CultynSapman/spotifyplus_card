@@ -40,12 +40,7 @@ export interface CardConfig extends LovelaceCardConfig {
    */
   sectionDefault?: Section;
 
-  /** 
-   * Sections of the card to display in the footer area. 
-   * 
-   * Valid values must match defined names in `secion.ts`.
-   */
-  footerSections?: Section[];
+
 
   /**
    * Title that is displayed at the top of the card, above the section area.
