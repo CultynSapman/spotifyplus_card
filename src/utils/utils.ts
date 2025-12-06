@@ -324,40 +324,40 @@ export function isCardInEditPreview(cardElement: Element) {
   //let parent1Cls: string | undefined = undefined;
   //let parent2Cls: string | undefined = undefined;
 
-    // get parent element data.
-    //console.log("isCardInEditPreview - ParentElement tagName info:\n parentElement1: %s = %s\n parentElement2: %s = %s\n parentElement3: %s = %s\n parentElement4: %s = %s\n parentElement5: %s = %s\n parentElement6: %s = %s\n parentElement7: %s = %s",
-    //  cardElement.parentElement?.tagName, cardElement.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
-    //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
-    //);
+  // get parent element data.
+  //console.log("isCardInEditPreview - ParentElement tagName info:\n parentElement1: %s = %s\n parentElement2: %s = %s\n parentElement3: %s = %s\n parentElement4: %s = %s\n parentElement5: %s = %s\n parentElement6: %s = %s\n parentElement7: %s = %s",
+  //  cardElement.parentElement?.tagName, cardElement.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
+  //  cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.tagName, cardElement.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.className,
+  //);
 
-//    const parent1Elm = cardElement.parentElement;
-//    if (parent1Elm) {
-//      parent1Cls = (parent1Elm.className || '').trim();
-//      const parent2Elm = parent1Elm.parentElement;
-//      if (parent2Elm) {
-//        parent2Cls = (parent2Elm.className || '').trim();
-//      }
-//    }
-//  } else {
-//    // cardElement was undefined.
-//  }
+  //    const parent1Elm = cardElement.parentElement;
+  //    if (parent1Elm) {
+  //      parent1Cls = (parent1Elm.className || '').trim();
+  //      const parent2Elm = parent1Elm.parentElement;
+  //      if (parent2Elm) {
+  //        parent2Cls = (parent2Elm.className || '').trim();
+  //      }
+  //    }
+  //  } else {
+  //    // cardElement was undefined.
+  //  }
 
-//  // check if the main or editor cards are in the configuration editor preview pane.
-//  let result = false;
-//  if (parent2Cls === 'element-preview') {
-//    // MAIN card is in the configuration editor preview pane.
-//    result = true;
-//  } else if (parent1Cls === 'gui-editor') {
-//    // EDITOR card is in the configuration editor preview pane.
-//    result = true;
-//  }
+  //  // check if the main or editor cards are in the configuration editor preview pane.
+  //  let result = false;
+  //  if (parent2Cls === 'element-preview') {
+  //    // MAIN card is in the configuration editor preview pane.
+  //    result = true;
+  //  } else if (parent1Cls === 'gui-editor') {
+  //    // EDITOR card is in the configuration editor preview pane.
+  //    result = true;
+  //  }
 
-//  return result;
+  //  return result;
 }
 
 
@@ -534,7 +534,7 @@ export function isTouchDevice(): boolean {
 export const loadHaFormLazyControls = async () => {
 
   // if specified customElements already exist then we are done.
-  if (customElements.get("search-input-outlined") && customElements.get("ha-md-button-menu") && customElements.get("ha-alert")) {
+  if (customElements.get("ha-md-button-menu") && customElements.get("ha-alert")) {
     return;
   }
 

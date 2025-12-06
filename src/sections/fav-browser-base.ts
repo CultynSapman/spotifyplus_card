@@ -11,7 +11,9 @@ import { styleMap, StyleInfo } from 'lit-html/directives/style-map.js';
 import { HomeAssistant } from '../types/home-assistant-frontend/home-assistant';
 import {
   mdiArrowLeft,
+  mdiClose,
   mdiFormatColumns,
+  mdiMagnify,
   mdiRefresh,
 } from '@mdi/js';
 
@@ -57,7 +59,7 @@ export class FavBrowserBase extends AlertUpdatesBase {
   @query("#mediaBrowserContentElement", true) protected mediaBrowserContentElement!: HTMLDivElement;
   @query("#filterCriteria", true) protected filterCriteriaElement!: HTMLElement;
 
-    /** Card configuration data. */
+  /** Card configuration data. */
   protected config!: CardConfig;
 
   /** MediaPlayer instance created from the configuration entity id. */
@@ -159,16 +161,18 @@ export class FavBrowserBase extends AlertUpdatesBase {
 
     // define control to render - search criteria.
     this.filterCriteriaHtml = html`
-      <search-input-outlined id="filterCriteria" 
+      <ha-textfield id="filterCriteria" 
         class="media-browser-control-filter"
-        .hass=${this.hass}
-        .filter=${this.filterCriteria}
+        .label=${this.filterCriteriaPlaceholder || "search by name"}
         .value=${this.filterCriteria}
-        .autofocus=true
-        placeholder=${this.filterCriteriaPlaceholder || "search by name"}
-        @value-changed=${this.onFilterCriteriaChange}
+        .icon=${true}
+        .iconTrailing=${true}
+        @input=${this.onFilterCriteriaChange}
         @keypress=${this.onFilterCriteriaKeyPress}
-      ></search-input-outlined>
+      >
+        <ha-svg-icon slot="leadingIcon" .path=${mdiMagnify}></ha-svg-icon>
+        <ha-icon-button slot="trailingIcon" .path=${mdiClose} @click=${this.onFilterCriteriaClear}></ha-icon-button>
+      </ha-textfield>
       `;
 
     // define control to render - search criteria (readonly).
@@ -493,15 +497,26 @@ export class FavBrowserBase extends AlertUpdatesBase {
   }
 
 
-  protected onFilterCriteriaChange(ev: CustomEvent) {
+  protected onFilterCriteriaChange(ev) {
 
     // store search critera.
-    this.filterCriteria = ev.detail.value;
+    const value = ev.target.value;
+    this.filterCriteria = value;
 
     // if filter cleared, then clear cache as well.
-    if (ev.detail.value == "") {
+    if (value == "") {
       storageService.clearStorageValue(this.cacheKeyBase + this.mediaType + CACHE_KEY_FILTER_CRITERIA);
     }
+
+  }
+
+
+  protected onFilterCriteriaClear() {
+
+    // clear search critera.
+    this.filterCriteria = "";
+    storageService.clearStorageValue(this.cacheKeyBase + this.mediaType + CACHE_KEY_FILTER_CRITERIA);
+    this.requestUpdate();
 
   }
 
@@ -862,7 +877,7 @@ export class FavBrowserBase extends AlertUpdatesBase {
    * 
    * @param updateCache True (default) to cache media list parameters and results; otherwise, False not to update the cache.
    */
-  protected updatedMediaListOk(updateCache: boolean = true): void { 
+  protected updatedMediaListOk(updateCache: boolean = true): void {
 
     // clear certain error messsages if they are temporary.
     if (this.alertError == ERROR_REFRESH_IN_PROGRESS) {

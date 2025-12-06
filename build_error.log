@@ -1,0 +1,17 @@
+﻿
+> build
+> npm run lint && npm run rollup && npm run deploy-vm
+
+
+> lint
+> eslint src/*.ts
+
+
+> rollup
+> rollup -c
+
+
+> deploy-vm
+> xcopy "dist\spotifyplus_card.*" "\\homeassistantvm\config\www" /Y /-I
+
+0 File(s) copied
