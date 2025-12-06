@@ -187,6 +187,12 @@ export class Footer extends LitElement {
    */
   private getSectionEnabled(searchElement: Section) {
 
+    // if footer sections are defined, then check if the section is in the list.
+    if (this.config.footerSections) {
+      return !this.config.footerSections.includes(searchElement) || nothing;
+    }
+
+    // otherwise, check if the section is enabled in the main sections list.
     return (this.config.sections && !this.config.sections?.includes(searchElement)) || nothing;
 
   }
